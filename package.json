@@ -1,0 +1,23 @@
+{
+  "name": "node_tutorials",
+  "version": "1.0.0",
+  "description": "Learning node and express ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericatsu/node_tutorials.git"
+  },
+  "author": "Eric Atsu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericatsu/node_tutorials/issues"
+  },
+  "homepage": "https://github.com/ericatsu/node_tutorials#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "lodash": "^4.17.21"
+  }
+}
