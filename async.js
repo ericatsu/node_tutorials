@@ -7,7 +7,7 @@ readFile('./content/first.txt', 'utf8', (err, result) => {
         return;
     }
     const first = result;
-    readFile('./content/first.txt', 'utf8', (err, result) => {
+    readFile('./content/second.txt', 'utf8', (err, result) => {
         if (err) {
             console.log(err);
             return;
@@ -18,7 +18,7 @@ readFile('./content/first.txt', 'utf8', (err, result) => {
                 console.log(err);
                 return;
             }
-            console.log('done with task');
+            console.log(result);
         }
         )
     })

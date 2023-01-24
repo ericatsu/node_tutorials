@@ -1,19 +1,32 @@
-const http = require('http');
+const { readFile, writeFile } = require('fs');
+const util = require('util');
+const readFilePromise = util.promisify(readFile);
+const writeFilePromise = util.promisify(writeFile);
 
-const server = http.createServer((request, response) => {
-  if (request.url === '/') {
-    response.end('This is the home page');
-  } else if (request.url === '/about') {
-    for (let i = 0; i < 1000; i++) {
-     for (let j = 0; j < 1000; j++) {
-         response.end(`${i} ${j}`)
-     }
-    }
-  } else {
-    response.end('error')
+
+// getText('./content/first.txt').then((result) => console.log(result)).catch((err) => console.log(err))
+
+const start = async () => {
+  try {
+    first = await readFilePromise('./content/first.txt', 'utf8');
+    second = await readFilePromise('./content/second.txt', 'utf8');
+    await writeFilePromise('./content/result-mind-grenade.txt', `THIS A NEW FILE: ${first}  ${second}`)
+    console.log(first, second);
+  } catch (error) {
+    console.log(error);
   }
-})
+}
 
-server.listen(5000, () => { 
-    console.log('Server is listen on port: 5000');
-})
+start();
+
+// const getText = (path) => {
+//   return new Promise((resolve, reject) => {
+//     readFile(path, 'utf8', (err, data) => {
+//       if (err) {
+//         reject(err)
+//       } else {
+//         resolve(data)
+//       }
+//     })
+//   })
+// }
