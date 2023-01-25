@@ -1,16 +1,9 @@
-const EventEmitter = require('events')
+const http = require('http')
+const fs = require('fs');
 
-const customEmitter = new EventEmitter();
+http.createServer(function(req, res) {
+  const text = fs.readFileSync('./content/big.txt', 'utf8')
+  res.end(text);
+}).listen(5000)
 
-customEmitter.on('response', (name, id) => {
-  console.log(`User Data of ${name} with id: ${id}`);
-})
-
-customEmitter.emit('response', 'Eric', 20)
-
-customEmitter.on('response2', (name, id) => {
-  console.log(`User 2 Data; ${name} and ${id}`);
-})
-
-customEmitter.emit('response2', 'Eri' , 2)
 
